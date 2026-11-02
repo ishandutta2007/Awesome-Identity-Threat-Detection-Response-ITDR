@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/itdr-banner.svg" alt="Awesome Identity Threat Detection &amp; Response (ITDR)" width="100%" />
+  <img src="./assets/banner.svg" alt="Awesome Identity Threat Detection &amp; Response (ITDR)" width="100%" />
 </p>
 
 # 🛡️ Awesome Identity Threat Detection & Response (ITDR) Ecosystem
