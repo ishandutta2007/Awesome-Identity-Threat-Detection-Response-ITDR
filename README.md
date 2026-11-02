@@ -1,197 +1,107 @@
-# Awesome-Identity-Threat-Detection-Response-ITDR
+# Awesome Identity Threat Detection & Response (ITDR) Ecosystem [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-## Top Identity Threat Detection & Response (ITDR) Ecosystem
+> A curated directory of premier enterprise SaaS platforms and leading open-source tools for **Identity Threat Detection & Response (ITDR)**, **Identity Attack Path Management (APM)**, Active Directory security, and credential breach prevention.
 
-
-
-**Curated List of SaaS Products & Open-Source GitHub Projects**  
-
-*Focused on Identity Attack Path Analysis, Behavioral Anomaly Detection & Self-Hosted ITDR Tooling*  
-
-**Last updated: November 2026**
-
-
-
-This repository tracks notable **SaaS platforms** and **open-source projects** for **Identity Threat Detection & Response (ITDR)**. These tools enable organizations to detect and respond to identity-based attacks—credential theft, privilege escalation, lateral movement, and MFA manipulation—before adversaries can establish persistence or reach critical systems.
-
-
-
-**Examples** include CrowdStrike Falcon Identity Protection, Silverfort, Microsoft Entra ID Protection, SentinelOne Singularity Identity, Authomize, Vectra AI, BeyondTrust, Semperis, Tenable Identity Exposure, and Spera Security (the category leaders).
-
-
-
-**Open-source emphasis**: ITDR is a domain where the **commercial market is mature and consolidating**, but open-source tooling is **genuinely emerging at the detection and attack-path layers**. **Authomize's Open-ITDR** is the most structured open-source effort—a framework with an OpenITDR Query API, community connectors, and automated remediation playbooks, though its GitHub activity has slowed (last push over a year ago) . **BloodHound Community Edition** is the standout for identity attack path analysis—a graph-based tool that reveals hidden privilege relationships and unintended access paths across AD and Azure environments . **AI-Driven-IAM-Anomaly-Detection** provides a research-grade implementation of behavioral anomaly detection for IAM logs, using per-identity Markov chains and tail-percentile risk scoring . The critical caveat: **no open-source project matches the real-time inline blocking** of Silverfort (runtime authentication firewall)  or the **unified endpoint + identity telemetry** of CrowdStrike Falcon —open-source tools focus on visibility and attack path discovery rather than live prevention.
-
-
-
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-
-
-## Table of Contents
-
-- [SaaS/Hosted Platforms](#saas-products)
-
-- [Open-Source GitHub Projects](#open-source-github-projects)
-
-- [How to Contribute](#how-to-contribute)
-
-- [Disclaimer](#disclaimer)
-
-
-
-## SaaS/Hosted Platforms
-
-
-
-- **[CrowdStrike Falcon Identity Protection](https://www.crowdstrike.com/)**  
-
-  Unified ITDR combining endpoint and identity telemetry; AI-powered behavioral detection, lateral movement prevention, and risk-based MFA enforcement. Protects AD, Entra ID, and Okta, with coverage across 150+ SaaS applications . Forrester TEI study reports 310% ROI . **Best for organizations wanting unified endpoint + identity protection** with a single agent and console.
-
-
-
-- **[Silverfort](https://www.silverfort.com/)**  
-
-  Identity security platform with **patented Runtime Access Protection (RAP)** —integrates natively with IAM infrastructure to enforce controls at runtime, blocking malicious authentications as they happen. Features: **Identity-first incident response**, **service account protection**, **ransomware and lateral movement prevention**, **passwordless PAM**, and **AI agent identity security** . **Best for organizations wanting inline, real-time identity threat prevention** without replacing existing IAM.
-
-
-
-- **[Microsoft Entra ID Protection](https://learn.microsoft.com/en-us/entra/id-protection/overview-identity-protection)**  
-
-  Native ITDR within Microsoft Entra; continuously detects risky sign-ins (anonymous IP, password spray, leaked credentials) and feeds risk signals to Conditional Access or SIEM. Provides **risk detections, risky sign-ins, and risky users** reports, with automated remediation via risk-based policies or manual review . **Best for Microsoft 365/Entra-centric organizations** wanting native identity risk detection without additional tooling.
-
-
-
-- **[SentinelOne Singularity Identity](https://www.sentinelone.com/)**  
-
-  ITDR integrated into SentinelOne's Singularity platform; combines identity threat detection with autonomous EDR response for unified protection.
-
-
-
-- **[Semperis (via Cohesity)](https://www.cohesity.com/)**  
-
-  Identity resilience platform with ITDR for **AD and Entra ID**; continuously inspects identity posture against 200+ indicators of exposure, detects malicious changes (even when logging is off), and **automatically rolls back changes** before attackers exploit them. Provides clean recovery and identity forensics . **Best for organizations prioritizing AD/Entra resilience and recovery**.
-
-
-
-- **[Vectra AI](https://www.vectra.ai/)**  
-
-  AI-driven hybrid cloud threat detection and response covering identity, network, and cloud; **Attack Signal Intelligence** correlates attacker TTPs for prioritization.
-
-
-
-- **[BeyondTrust](https://www.beyondtrust.com/)**  
-
-  Identity security platform fusing **PAM, ITDR, CIEM, and remote support**; acquired Entitle (2026) for JIT access and modern IGA.
-
-
-
-- **[Tenable Identity Exposure](https://www.tenable.com/)**  
-
-  AD security monitoring and attack path analysis; **CAUTION**: CVE-2026-106126 (command injection in AD Events Listener allowing SYSTEM-level RCE from a low-privileged account) was reported in October 2026 . Verify patch status before deployment.
-
-
-
-- **[Spera Security](https://www.spera.io/)**  
-
-  Identity security posture management platform; **acquired by Okta** (December 2023, $100M–$130M valuation) for identity-driven breach prevention .
-
-
-
-## Open-Source GitHub Projects
-
-
-
-### Attack Path Analysis (BloodHound CE)
-
-
-
-- **[BloodHound Community Edition](https://github.com/SpecterOps/BloodHound)**  
-
-  The **leading open-source identity attack path analysis tool** (Apache 2.0, SpecterOps). Uses **graph theory** to reveal hidden and unintended relationships across identity and access management systems; supports AD and Azure environments via SharpHound and AzureHound collectors, with OpenGraph extending analysis to diverse identity platforms . **Best for red/blue teams** wanting to discover and mitigate privilege escalation paths—but it is visibility and analysis, not real-time prevention.
-
-
-
-### ITDR Frameworks & Playbooks (Open-ITDR)
-
-
-
-- **[Authomize Open-ITDR](https://github.com/authomize/Open-ITDR)**  
-
-  An **open framework for the ITDR community** with an OpenITDR Query API for pulling identity context, community connectors for data ingestion from SaaS/IaaS/on-premises sources, and **automated remediation playbooks** (e.g., protecting compromised Okta users, remediating over-privilege in AWS) . **Caveat**: GitHub activity has slowed—last push over a year ago . **Best for organizations building custom ITDR pipelines**—but it is a framework, not a maintained platform.
-
-
-
-### Behavioral Anomaly Detection (Research)
-
-
-
-- **[AI-Driven-IAM-Anomaly-Detection](https://github.com/keyfive5/AI-Driven-IAM-Anomaly-Detection)**  
-
-  A research-grade **IAM anomaly detection system** (Python) using **per-identity Markov chains** for behavioral surprisal, **tail-percentile risk scoring** (not probability—risk 57 ≈ oddest 1% of events), and **rules as floor not cap** (rules catch known-bad like `cloudtrail:StopLogging` regardless of statistical novelty) . Demonstrates measurable improvements: switching from averaging to weighted tail-max moved average precision from 0.50 to 0.85. **Best for security engineers** wanting a reference implementation of behavioral ITDR—but it is a research project, not production-ready.
-
-
-
-### AD Security Assessment Pipelines (Cocytus)
-
-
-
-- **[Cocytus (CSIRT-MU)](https://gitlab.ics.muni.cz/CSIRT-MU-PUBLIC/threat-management/activedirectory/cocytus)**  
-
-  A Python-based **orchestration pipeline for AD security assessment**; coordinates **SharpHound, PingCastle, and GPOZaurr** to gather AD data, normalize/enrich it, and upload to BloodHound CE . **Windows-only** (collectors are Windows binaries); Linux mode is testing-only. **Best for AD administrators** wanting automated data collection for attack path analysis—but it feeds BloodHound rather than replacing it.
-
-
-
-### Additional Strong Open-Source Options
-
-
-
-- **idryx** — Open-source **Identity Security Graph** (Apache-2.0) unifying humans, service accounts, keys, and AI agents; detects excessive privilege and anomalous behavior, with alert delivery to Slack, webhooks, or OTLP . **Best for teams wanting a graph-based identity security layer**—but it is newer and less community-validated.
-
-- **Bloodtrail** — Python CLI for AD attack path analysis with BloodHound import, query library, and attack chain detection (Exchange WriteDACL → DCSync, etc.) . **Best for penetration testers**—but it is offensive tooling, not defensive ITDR.
-
-
-
-**Frameworks for building custom systems**: For **attack path discovery**, BloodHound CE is the mature standard . For **ITDR playbooks and connectors**, Open-ITDR provides a framework (accepting slowed maintenance) . For **behavioral anomaly detection research**, AI-Driven-IAM-Anomaly-Detection demonstrates the pattern . For **AD data collection automation**, Cocytus . **No open-source project matches the real-time inline blocking** of Silverfort  or the **unified endpoint + identity telemetry** of CrowdStrike —choose based on whether you need visibility (BloodHound), behavioral research (AI-Driven-IAM), or a framework (Open-ITDR).
-
-
-
-## How to Contribute
-
-
-
-1. Fork the repo.
-
-2. Add/edit entries in `README.md` (follow existing format).
-
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-
-4. Submit PR with a short explanation.
-
-
-
-Star the repo if you find it useful!
-
-
-
-## Disclaimer
-
-
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-
-- ITDR platforms handling identity telemetry must comply with organizational security policies and privacy regulations; **self-hosted solutions place full responsibility for tuning, integration maintenance, and data accuracy on the operator**.
-
-- **Open-source ITDR is emerging but fundamentally limited compared to commercial platforms**—BloodHound provides attack path analysis , and Open-ITDR provides a framework , but **no open-source project matches the real-time inline blocking** of Silverfort  or the **unified endpoint + identity correlation** of CrowdStrike . **Tenable Identity Exposure has a known critical CVE** (October 2026) . Choose based on whether you need visibility (BloodHound), behavioral research (AI-Driven-IAM), or a framework (Open-ITDR).
-
-- Verify license terms for commercial use; BloodHound uses Apache 2.0 , Open-ITDR is open-source , and AI-Driven-IAM-Anomaly-Detection is open-source .
-
-
+**Identity Threat Detection & Response (ITDR)** represents the security discipline and tooling designed to protect identity systems—such as Active Directory (AD), Microsoft Entra ID, Okta, and Cloud IAM—from credential theft, privilege escalation, lateral movement, token theft, and persistence. As modern attacks bypass traditional perimeter defenses and endpoint detection and response (EDR) agents using legitimate credentials, ITDR establishes behavioral visibility, attack path graphing, and real-time runtime access controls across identity fabrics.
 
 ---
 
+## Sector Overview & Market Dynamics
 
+The global **Identity Threat Detection and Response (ITDR)** market is estimated at **$12.8 billion** and projected to exceed **$35.6 billion** by 2030, advancing at a Compound Annual Growth Rate (CAGR) of **~22.6%**. The market is **moderately fragmented yet rapidly consolidating**, characterized by foundational identity infrastructure titans (Microsoft, CrowdStrike) acquiring niche innovators (e.g., Okta acquiring Spera Security, Delinea acquiring Authomize) alongside specialized pure-play unicorns (Silverfort, Semperis) competing on patented inline authentication firewalls and deep hybrid-Active Directory cyber resilience.
 
-**Made for identity security architects, SOC analysts, and organizations choosing their ITDR strategy.**  
+---
 
-Let's make identity threat detection more open at the visibility and analysis layer, but with clear eyes about the real-time inline prevention gaps that commercial platforms still fill.
+## Table of Contents
+
+- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
+- [Enterprise SaaS & Commercial ITDR Platforms](#enterprise-saas--commercial-itdr-platforms)
+- [Open-Source ITDR & Active Directory Security Projects](#open-source-itdr--active-directory-security-projects)
+- [Key Architectural Differences: SaaS vs. Open-Source](#key-architectural-differences-saas-vs-open-source)
+- [How to Contribute](#how-to-contribute)
+- [Disclaimer & License](#disclaimer--license)
+
+---
+
+## Enterprise SaaS & Commercial ITDR Platforms
+
+The following matrix benchmarks prominent commercial ITDR solutions sorted in descending order by enterprise company scale (market capitalization or latest enterprise valuation).
+
+| Platform | Company Valuation / Revenue | Pricing Model (Starting Tier) | Free Tier Limit / Free Trial Policy | Primary Focus & Core Differentiator |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Microsoft Entra ID Protection](https://learn.microsoft.com/en-us/entra/id-protection/overview-identity-protection)** | ~$3.88 Trillion (Market Cap) | $10.00 / user / month (Included in Entra ID P2 license; bundled in M365 E5) | 30-day free trial (Up to 100 Entra ID P2 evaluation licenses) | Native risk-based sign-in and user anomaly detection feeding directly into Conditional Access policies. |
+| **[CrowdStrike Falcon Identity Protection](https://www.crowdstrike.com/)** | ~$260 Billion (Market Cap) | ~$3.00 – $5.00 / active identity / month (Available via Falcon Enterprise/Elite add-on or AWS Marketplace private offer) | 15-day free trial (Self-service Falcon platform trial with Identity module activation; expandable via sales) | Unified endpoint and identity telemetry; real-time lateral movement blocking and risk-based dynamic MFA. |
+| **[SentinelOne Singularity Identity](https://www.sentinelone.com/)** | ~$8.7 Billion (Market Cap) | $229.99 / endpoint / year (~$19.16 / endpoint / month via Singularity Commercial tier with ITDR) | 30-day guided PoC trial (Provisioned console via sales/partners; no self-service tier) | Deceptive lures, identity threat detection, and automated containment correlated with Singularity EDR. |
+| **[Tenable Identity Exposure](https://www.tenable.com/)** | ~$5.4 Billion (Market Cap) | £23.14 (~$29.50) / enabled identity / year (~$2.45 / identity / month via G-Cloud framework; also in Tenable One) | 30-day proof-of-concept trial (Requires directory configuration with 100+ active user identities) | Continuous Active Directory and Entra ID vulnerability exposure scanning without host agents or event logging overhead. |
+| **[Semperis](https://www.cohesity.com/)** | ~$1.5 Billion – $2.5 Billion Valuation ($100M+ ARR) | Quote-based enterprise subscription per protected AD/Entra account (Typical entry tier ~$15,000 / year) | Free forever community edition available via **Purple Knight** (Unlimited one-off assessments of AD, Entra ID, & Okta; continuous monitoring requires paid enterprise license) | Active Directory cyber resilience, automated malicious modification rollbacks, and clean post-attack forest recovery. |
+| **[Vectra AI](https://www.vectra.ai/)** | ~$1.2 Billion Valuation (~$130M ARR) | Quote-based tier starting ~$12,000 – $25,000 / year based on monitored IP addresses, cloud accounts, and identities | 30-day to 45-day structured trial deployment (Guided evaluation with Attack Signal Intelligence against live directory/cloud traffic) | Behavior-based AI detecting attacker TTPs across hybrid cloud identities, M365, and enterprise networks. |
+| **[Silverfort](https://www.silverfort.com/)** | ~$1.0 Billion Unicorn Valuation (~$82M ARR) | Headcount-based subscription starting at ~$15,000 / year on AWS Marketplace (Core, Plus, Advanced, Enterprise tiers) | 14-day to 30-day guided Proof of Concept (Sales/partner engagement; no perpetual free tier) | Patented Runtime Access Protection (RAP); serves as an inline authentication firewall extending MFA to legacy protocols and service accounts. |
+| **[BeyondTrust](https://www.beyondtrust.com/)** | Clearlake Capital / Francisco Partners Portfolio (~$400M+ ARR) | Modular subscriptions starting at ~$30,000 / year ACV for entry tiers (Password Safe / PRA modules) | 14-day free trial available for Remote Support & Privileged Remote Access; PAM/ITDR modules require guided evaluation | Privileged Access Management (PAM) unified with identity threat detection, CIEM, and JIT access orchestration. |
+| **[Spera Security (Okta)](https://www.spera.io/)** | Acquired by Okta for ~$80M – $130M (Okta Market Cap: ~$16 Billion) | Integrated into Okta Identity Governance & Posture product tiers | 30-day Okta enterprise evaluation trial (Access to Okta workforce and security capabilities) | Identity Security Posture Management (ISPM) and attack surface minimization across SaaS and enterprise environments. |
+
+---
+
+## Open-Source ITDR & Active Directory Security Projects
+
+Open-source identity security tools excel at **attack path discovery**, **privilege graph analysis**, **audit automation**, and **forensic log investigation**. Below are premier open-source options, sorted in descending order by GitHub stargazers count:
+
+| Project | Stars | Focus Category | License | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **[BloodHound Legacy](https://github.com/SpecterOps/BloodHound-Legacy)** | [![Stars](https://img.shields.io/github/stars/SpecterOps/BloodHound-Legacy?style=social&color=white)](https://github.com/SpecterOps/BloodHound-Legacy/stargazers) | Attack Path Analysis | GPL-3.0 | The landmark graph-theory cybersecurity application used to identify complex and unintended relationship chains in Active Directory. |
+| **[BloodHound Community Edition](https://github.com/SpecterOps/BloodHound)** | [![Stars](https://img.shields.io/github/stars/SpecterOps/BloodHound?style=social&color=white)](https://github.com/SpecterOps/BloodHound/stargazers) | Attack Path Graphing | Apache-2.0 | Next-generation BloodHound architecture maintained by SpecterOps; provides continuous ingestion, OpenGraph schema, and hybrid AD/Azure privilege graphing. |
+| **[PingCastle](https://github.com/netwrix/pingcastle)** | [![Stars](https://img.shields.io/github/stars/netwrix/pingcastle?style=social&color=white)](https://github.com/netwrix/pingcastle/stargazers) | Active Directory Auditing | Non-Profit OSL 3.0 | Comprehensive Active Directory posture assessment tool evaluating trust relationships, stale objects, anomalous delegations, and compliance health. |
+| **[BloodHound.py](https://github.com/dirkjanm/BloodHound.py)** | [![Stars](https://img.shields.io/github/stars/dirkjanm/BloodHound.py?style=social&color=white)](https://github.com/dirkjanm/BloodHound.py/stargazers) | Data Collection / Ingestion | MIT | Pure Python ingestor for BloodHound, enabling cross-platform directory enumeration from Linux/macOS without requiring Windows execution. |
+| **[bloodyAD](https://github.com/CravateRouge/bloodyAD)** | [![Stars](https://img.shields.io/github/stars/CravateRouge/bloodyAD?style=social&color=white)](https://github.com/CravateRouge/bloodyAD/stargazers) | Privilege Escalation Analysis | MIT | Lightweight Active Directory privilege escalation and attack path verification framework leveraging LDAP and SAMR protocols. |
+| **[CISA Sparrow](https://github.com/cisagov/Sparrow)** | [![Stars](https://img.shields.io/github/stars/cisagov/Sparrow?style=social&color=white)](https://github.com/cisagov/Sparrow/stargazers) | Cloud Forensics & ITDR | CC0-1.0 | Developed by CISA Cloud Forensics to detect compromised accounts, malicious Azure AD application consents, and authentication anomalies. |
+| **[WatchAD](https://github.com/Qianlitp/WatchAD)** | [![Stars](https://img.shields.io/github/stars/Qianlitp/WatchAD?style=social&color=white)](https://github.com/Qianlitp/WatchAD/stargazers) | AD Intrusion Detection | Apache-2.0 | Python-based Active Directory security intrusion detection engine analyzing Windows event logs in near real-time for Kerberos and NTLM abuses. |
+| **[Hawk](https://github.com/T0pCyber/hawk)** | [![Stars](https://img.shields.io/github/stars/T0pCyber/hawk?style=social&color=white)](https://github.com/T0pCyber/hawk/stargazers) | M365 & Entra Forensics | MIT | PowerShell incident response and threat hunting module gathering sign-in telemetry, forwarding rules, and tenant configuration risks. |
+| **[ADPulse](https://github.com/dievus/ADPulse)** | [![Stars](https://img.shields.io/github/stars/dievus/ADPulse?style=social&color=white)](https://github.com/dievus/ADPulse/stargazers) | AD Vulnerability Assessment | MIT | Automated Active Directory scanner inspecting Kerberos configurations, ADCS certificates, LAPS implementations, and risky GPOs. |
+| **[AD-PathFinder](https://github.com/NetSPI/AD-PathFinder)** | [![Stars](https://img.shields.io/github/stars/NetSPI/AD-PathFinder?style=social&color=white)](https://github.com/NetSPI/AD-PathFinder/stargazers) | Attack Path Surface Mapping | MIT | Evaluates BloodHound/SharpHound collections to reveal non-traditional privilege paths across AD, ADCS, SCCM, and connected SQL databases. |
+| **[nicolonsky/ITDR](https://github.com/nicolonsky/ITDR)** | [![Stars](https://img.shields.io/github/stars/nicolonsky/ITDR?style=social&color=white)](https://github.com/nicolonsky/ITDR/stargazers) | ITDR Playbooks & Detections | MIT | Curated repository of Microsoft Sentinel and Defender detection rules, threat hunting queries, and response playbooks for identity risks. |
+| **[Authomize Open-ITDR](https://github.com/authomize/Open-ITDR)** | [![Stars](https://img.shields.io/github/stars/authomize/Open-ITDR?style=social&color=white)](https://github.com/authomize/Open-ITDR/stargazers) | Community ITDR Framework | Apache-2.0 | Open-source framework providing an OpenITDR query schema, ingestion connectors, and automated remediation playbooks for cloud identity posture. |
+| **[ActiveDirectory-SAST](https://github.com/capture0x/ActiveDirectory-SAST)** | [![Stars](https://img.shields.io/github/stars/capture0x/ActiveDirectory-SAST?style=social&color=white)](https://github.com/capture0x/ActiveDirectory-SAST/stargazers) | Sigma Detection Rules | MIT | Library of static detection and Sigma rules targeting Active Directory exploitation techniques for SOC and Blue Team pipelines. |
+| **[AI-Driven-IAM-Anomaly-Detection](https://github.com/keyfive5/AI-Driven-IAM-Anomaly-Detection)** | [![Stars](https://img.shields.io/github/stars/keyfive5/AI-Driven-IAM-Anomaly-Detection?style=social&color=white)](https://github.com/keyfive5/AI-Driven-IAM-Anomaly-Detection/stargazers) | Behavioral Machine Learning | MIT | Research implementation of IAM behavioral anomaly detection using per-identity Markov chains and tail-percentile risk scoring. |
+| **[TAIPANBOX idryx](https://github.com/TAIPANBOX/idryx)** | [![Stars](https://img.shields.io/github/stars/TAIPANBOX/idryx?style=social&color=white)](https://github.com/TAIPANBOX/idryx/stargazers) | Identity Security Graph | Apache-2.0 | Unifies human users, service accounts, and AI agents into an identity graph mapping delegation chains and anomalous access patterns. |
+
+---
+
+## Key Architectural Differences: SaaS vs. Open-Source
+
+```mermaid
+flowchart TD
+    subgraph Enterprise_SaaS["Enterprise SaaS ITDR (Runtime Protection)"]
+        A1[Live Authentication Request] --> B1{Inline Auth Firewall / EDR Agent}
+        B1 -->|Malicious / Risky| C1[Real-Time Inline Block / Step-up MFA]
+        B1 -->|Legitimate| D1[Access Granted]
+        E1[Live Directory Changes] --> F1[Continuous Event Stream & Auto-Rollback]
+    end
+
+    subgraph Open_Source["Open-Source ITDR (Analysis & Visibility)"]
+        A2[Periodic Ingestion / Logs] --> B2[Graph DB & Ingestion Parsers]
+        B2 --> C2[Attack Path Visualizations]
+        B2 --> D2[Audit Scoring & Threat Hunting Reports]
+        C2 --> E2[Manual Engineer Remediation & GPO Hardening]
+    end
+```
+
+- **Inline Prevention vs. Posture Visibility**: Commercial platforms like Silverfort and CrowdStrike operate directly inside the authentication path (via runtime agents or domain controller adapters), blocking lateral movement and enforcing step-up MFA in sub-seconds. Open-source solutions (e.g., BloodHound, PingCastle) focus on offline graphing, periodic log parsing, and identifying exposure paths before attackers exploit them.
+- **Maintenance & Telemetry Overhead**: Commercial SaaS provides pre-tuned machine learning models and threat intelligence feeds. Open-source tools require internal infrastructure to host databases (Neo4j, PostgreSQL), run collectors (SharpHound, Python scripts), and calibrate detection logic.
+
+---
+
+## How to Contribute
+
+1. Fork this repository.
+2. Create a new branch: `git checkout -b feature/add-itdr-tool`.
+3. Add the SaaS or Open-Source tool adhering to the table schema:
+   - For **SaaS**: verify pricing tiers, free trial specifics, and company valuation.
+   - For **Open-Source**: include star badge linked to stargazers and verify open-source license.
+4. Submit a Pull Request with a clear description and citations.
+
+---
+
+## Disclaimer & License
+
+- This list is community-curated for informational and architectural evaluation purposes.
+- Always review vendor security disclosures and update cycles before deploying tools to production environments (e.g., verify security patches for directory connectors).
+- Distributed under the [MIT License](LICENSE).
