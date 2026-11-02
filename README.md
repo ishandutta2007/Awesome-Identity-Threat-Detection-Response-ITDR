@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://awesome.re/badge.svg" alt="Awesome" /></a>
-  <a href="https://github.com/ishandutta2007/Awesome-Identity-Threat-Detection-Response-ITDR/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Identity-Threat-Detection-Response-ITDR?style=social" alt="GitHub Stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Identity-Threat-Detection-Response-ITDR/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Identity-Threat-Detection-Response-ITDR?style=social" alt="GitHub_Stars" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-Identity-Threat-Detection-Response-ITDR/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-Identity-Threat-Detection-Response-ITDR?style=social" alt="GitHub Forks" /></a>
   <a href="https://github.com/ishandutta2007/Awesome-Identity-Threat-Detection-Response-ITDR/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
   <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
@@ -62,7 +62,7 @@ The following matrix benchmarks prominent commercial ITDR solutions sorted in de
 
 Open-source identity security tools excel at **attack path discovery**, **privilege graph analysis**, **audit automation**, and **forensic log investigation**. Below are premier open-source options, sorted in descending order by GitHub stargazers count: 🌟
 
-| Project | Stars | Focus Category | License | Description |
+| Project | GitHub_Stars | Focus Category | License | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | **[BloodHound Legacy](https://github.com/SpecterOps/BloodHound-Legacy)** | [![Stars](https://img.shields.io/github/stars/SpecterOps/BloodHound-Legacy?style=social&color=white)](https://github.com/SpecterOps/BloodHound-Legacy/stargazers) | Attack Path Analysis | GPL-3.0 | The landmark graph-theory cybersecurity application used to identify complex and unintended relationship chains in Active Directory. 🩸 |
 | **[BloodHound Community Edition](https://github.com/SpecterOps/BloodHound)** | [![Stars](https://img.shields.io/github/stars/SpecterOps/BloodHound?style=social&color=white)](https://github.com/SpecterOps/BloodHound/stargazers) | Attack Path Graphing | Apache-2.0 | Next-generation BloodHound architecture maintained by SpecterOps; provides continuous ingestion, OpenGraph schema, and hybrid AD/Azure privilege graphing. 🌐 |
@@ -114,7 +114,7 @@ Contributions are warmly welcomed! Help keep this ITDR resource accurate and up-
 2. Create a feature branch: `git checkout -b feature/add-itdr-tool`.
 3. Add the SaaS or Open-Source tool adhering to the table schema:
    - For **SaaS**: verify pricing tiers, free trial specifics, and company valuation.
-   - For **Open-Source**: include star badge linked to stargazers and verify open-source license.
+   - For **Open-Source**: include Stars_Badge linked to stargazers and verify open-source license.
 4. Submit a Pull Request with a clear description and citations.
 
 ---
